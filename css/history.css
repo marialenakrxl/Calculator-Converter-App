@@ -1,0 +1,143 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+}
+
+body.bg-black {
+  background: radial-gradient(circle at top, #111 0, #000 60%, #000 100%);
+}
+
+.history-container {
+  min-height: 100vh;
+  max-width: 900px;
+  width: 100%;
+  margin: 80px;
+  padding: 1.5rem 2rem;
+
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.15);
+}
+
+.top-actions h2 {
+  color: #ffffff;
+  letter-spacing: 0.03rem;
+}
+
+.top-actions .btn {
+  border-radius: 999px;
+  font-size: 0.8rem;
+  padding-inline: 0.9rem;
+}
+
+.top-actions .btn-outline-light {
+  border-color: rgba(245, 245, 245, 0.7);
+  color: #f5f5f5;
+}
+
+.top-actions .btn-outline-light:hover {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+.top-actions .btn-outline-danger {
+  border-radius: 999px;
+}
+
+#emptyMsg {
+  color: #cfcfcf;
+  font-size: 0.9rem;
+}
+
+.day-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #bbb;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.history-bubble {
+  max-width: 900px;
+  width: 100%;
+
+  background: rgba(29, 29, 31, 0.85);
+  border-radius: 14px;
+  padding: 0.75rem 1.2rem;
+  margin-bottom: 0.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+}
+
+.history-main-block {
+  flex: 0 0 auto !important;
+  height: auto !important;
+}
+
+#historyList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1rem;
+}
+
+.history-expression {
+  font-size: 0.9rem;
+  color: #e5e5e7;
+}
+
+.history-result {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.history-time {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.history-delete-btn {
+  border: none;
+  background: transparent;
+  color: #ff453a;
+  font-size: 1.1rem;
+  margin-left: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.history-delete-btn:hover {
+  transform: scale(1.15);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 576px) {
+  .history-container {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .top-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .top-actions .ms-auto {
+    margin-left: 0 !important;
+  }
+}
