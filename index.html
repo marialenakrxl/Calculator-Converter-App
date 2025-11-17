@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body class="bg-black">
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container-lg">
+
+      <a href="#" class="navbar-brand">Calculator App</a>
+
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavCollapsible">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navbarNavCollapsible" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Calculator/Converter</a></li>
+            <li class="nav-item"><a class="nav-link" href="./history.html">History</a></li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+
+  <main class="main-content d-flex justify-content-center align-items-center">
+
+    <div class="d-flex justify-content-center align-items-start gap-5">
+
+      <!-- Calculator Page -->
+      <div class="calc-wrapper">
+
+        <!-- Display Area -->
+        <div id="counter" class="calc-display display-3 text-end text-white"></div>
+
+        <!-- Buttons -->
+        <div class="container-fluid px-0">
+
+          <!-- row 1 -->
+          <div class="row g-2 mb-1">
+            <div class="col-3">
+              <button id="resetBtn" class="btn w-100 calc-func" data-action="clear">AC</button>
+            </div>
+            <div class="col-3">
+              <button id="reverseBtn" class="btn w-100 calc-func" data-action="sign">+/-</button>
+            </div>
+            <div class="col-3">
+              <button id="precentBtn" class="btn w-100 calc-func" data-action="precent">%</button>
+            </div>
+            <div class="col-3">
+              <button id="divideBtn" class="btn w-100 calc-op" data-action="divide">÷</button>
+            </div>
+          </div>
+
+          <!-- row 2 -->
+          <div class="row g-2 mb-1">
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="7">7</button>
+            </div>
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="8">8</button>
+            </div>
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="9">9</button>
+            </div>
+            <div class="col-3">
+              <button id="mulBtn" class="btn w-100 calc-op" data-action="multiply">×</button>
+            </div>
+          </div>
+
+          <!-- row 3 -->
+          <div class="row g-2 mb-1">
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="4">4</button>
+            </div>
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="5">5</button>
+            </div>
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="6">6</button>
+            </div>
+            <div class="col-3">
+              <button id="subBtn" class="btn w-100 calc-op" data-action="subtract">-</button>
+            </div>
+          </div>
+
+          <!-- row 4 -->
+          <div class="row g-2 mb-1">
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="1">1</button>
+            </div>
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="2">2</button>
+            </div>
+            <div class="col-3">
+              <button id="number" class="btn w-100 calc-num" data-number="3">3</button>
+            </div>
+            <div class="col-3">
+              <button id="addBtn" class="btn w-100 calc-op" data-action="add">+</button>
+            </div>
+          </div>
+
+          <!-- row 5 -->
+          <div class="row g-2">
+            <div class="col-6">
+              <button id="number" class="btn w-100 calc-num calc-zero" data-number="0">0</button>
+            </div>
+            <div class="col-3">
+              <button id="decPointBtn" class="btn w-100 calc-num" data-action="decimal">.</button>
+            </div>
+            <div class="col-3">
+              <button id="equalBtn" class="btn w-100 calc-op" data-action="equals">=</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Money Converter -->
+      <div class="calc-wrapper converter-wrapper text-white">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="h4 mb-0">Money Converter</h2>
+          <small id="rateInfo" class="text-secondary"></small>
+        </div>
+
+        <form id="converterForm">
+          
+          <!-- Amount -->
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control converter-input" id="amount" placeholder="0.00" step="0.01" min="0">
+          </div>
+
+          <!-- From/To -->
+          <div class="row g-2 mb-3">
+            <div class="col-6">
+              <label for="fromCurrency" class="form-label small">From</label>
+              <select id="fromCurrency" class="form-select converter-select">
+                <option value="EUR">EUR €</option>
+                <option value="USD">USD $</option>
+                <option value="GBP">GBP £</option>
+                <option value="JPY">JPY ¥</option>
+                <option value="CHF">CHF fr</option>
+                <option value="HUF">HUF Ft</option>
+              </select>
+            </div>
+
+            <div class="col-6">
+              <label for="toCurrency" class="form-label small">To</label>
+              <select id="toCurrency" class="form-select converter-select">
+                <option value="EUR">EUR €</option>
+                <option value="USD">USD $</option>
+                <option value="GBP">GBP £</option>
+                <option value="JPY">JPY ¥</option>
+                <option value="CHF">CHF fr</option>
+                <option value="HUF">HUF Ft</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <button type="button" id="swapBtn" class="btn btn-outline-light rounded-pill px-3">
+              ⇆ Swap
+            </button>
+            <button type="submit" class="btn calc-op px-4">
+              Convert
+            </button>
+          </div>
+
+          <div id="convResult" class="calc-display display-3 text-end text-white">
+            0
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+  <script src="./calculator.js"></script>
+  <script src="./converter.js"></script>
+</body>
+</html>
