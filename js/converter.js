@@ -87,5 +87,19 @@ function calculateConversion() {
 }
 
 function getRate(from, to) {
-  
+  const fromRate = rates[from]
+  const toRate = rates[to]
+  return toRate / fromRate
+}
+
+// View
+function updateConverterDisplay() {
+  const result = document.querySelector('#convResult')
+  result.textContent = resultValue
+}
+
+function updateRateInfo() {
+  const rate = getRate(fromCurrency, toCurrency)
+  const rateInfo = document.querySelector('#rateInfo')
+  rateInfo.textContent = `1 ${fromCurrency} = ${rate.toFixed(4)} ${toCurrency}`
 }
