@@ -15,9 +15,6 @@ let result = CONVERTER_DEFAULT
 
 window.document.addEventListener('DOMContentLoaded', () => {
 
-  this.window.document.querySelector('#amount').addEventListener('input', () => onAmountChanged())
-  this.window.document.querySelector('#fromCurrency').addEventListener('change', () => onCurrencyChanged())
-  this.window.document.querySelector('#toCurrency').addEventListener('change', () => onCurrencyChanged())
   this.window.document.querySelector('#swapBtn').addEventListener('click', () => onSwapClicked())
   this.window.document.querySelector('#converterForm').addEventListener('submit', (e) => {
     e.preventDefault()
@@ -50,19 +47,6 @@ function onSwapClicked() {
   calculateConversion()
   updateConverterDisplay()
   updateRateInfo()
-}
-
-function onCurrencyChanged() {
-  readInputToState()
-  calculateConversion()
-  updateConverterDisplay()
-  updateRateInfo()
-}
-
-function onAmountChanged() {
-  readInputToState()
-  calculateConversion()
-  updateConverterDisplay()
 }
 
 // Model
