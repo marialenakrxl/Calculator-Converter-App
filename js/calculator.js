@@ -185,5 +185,32 @@ function saveToHistory(num1, op, num2, result) {
 
 // View
 function updateDisplay() {
-  document.querySelector('#counter').textContent = counter;
+  const display = document.querySelector('#counter')
+  display.textContent = counter
+
+  const baseSize = 52
+  const minSize = 22
+  const maxBeforeShrink = 8
+
+  const len = counter.length
+
+  if (len <= maxBeforeShrink) {
+    display.style.fontSize = baseSize + 'px'
+    return
+  }
+
+  const shrinkFactor = 1 - Math.min((len - maxBeforeShrink) * 0.07, 0.7)
+
+  let newSize = baseSize * shrinkFactor
+  if (newSize < minSize) newSize = minSize
+
+  display.style.fontSize = newSize + 'px'
+
+  if (len > 22) {
+    const num = parseFloat(counter)
+    if (!isNaN(num)) {
+      display.textContent = num.toExponential(6)
+      display.style.fontSize = "22px"
+    }
+  }
 }

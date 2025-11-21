@@ -37,6 +37,12 @@ body.bg-black {
   font-size: 52px;
   font-weight: 300;
   overflow: hidden;
+  white-space: nowrap;
+  transition: font-size 0.15s ease;
+
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .calc-wrapper .btn {
